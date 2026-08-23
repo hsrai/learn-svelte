@@ -1,89 +1,81 @@
-<script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from './assets/vite.svg'
-  import heroImg from './assets/hero.png'
-  import Counter from './lib/Counter.svelte'
+<script lang="ts">
+  import Card from "./lib/Card.svelte";
+  import ThemePanel from "./ThemePanel.svelte";
+
+  import { applyTheme } from "./theme/derive";
+  import { theme } from "./theme/state.svelte";
+
+  let pageTitle = $state("Hukamnama");
+  let showTheme = $state(false);
+
+  $effect(() => {
+    // establish dependencies
+    theme.hue;
+    theme.chroma;
+    theme.vibrancy;
+    theme.mode;
+    theme.contrast;
+    theme.scale;
+    theme.density;
+    theme.corners;
+
+    applyTheme();
+  });
 </script>
 
-<section id="center">
-  <div class="hero">
-    <img src={heroImg} class="base" width="170" height="179" alt="" />
-    <img src={svelteLogo} class="framework" alt="Svelte logo" />
-    <img src={viteLogo} class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/App.svelte</code> and save to test <code>HMR</code></p>
-  </div>
-  <Counter />
-</section>
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
-<div class="ticks"></div>
+<main class="page">
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true">
-      <use href="/icons.svg#documentation-icon"></use>
-    </svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-          <img class="logo" src={viteLogo} alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://svelte.dev/" target="_blank" rel="noreferrer">
-          <img class="button-icon" src={svelteLogo} alt="" />
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true">
-      <use href="/icons.svg#social-icon"></use>
-    </svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li>
-        <a href="https://github.com/vitejs/vite" target="_blank" rel="noreferrer">
-          <svg class="button-icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#github-icon"></use>
-          </svg>
-          GitHub
-        </a>
-      </li>
-      <li>
-        <a href="https://chat.vite.dev/" target="_blank" rel="noreferrer">
-          <svg class="button-icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#discord-icon"></use>
-          </svg>
-          Discord
-        </a>
-      </li>
-      <li>
-        <a href="https://x.com/vite_js" target="_blank" rel="noreferrer">
-          <svg class="button-icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#x-icon"></use>
-          </svg>
-          X.com
-        </a>
-      </li>
-      <li>
-        <a href="https://bsky.app/profile/vite.dev" target="_blank" rel="noreferrer">
-          <svg class="button-icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#bluesky-icon"></use>
-          </svg>
-          Bluesky
-        </a>
-      </li>
-    </ul>
-  </div>
-</section>
+	<header class="topbar">
+		<h1>Hukamnama</h1>
 
-<div class="ticks"></div>
-<section id="spacer"></section>
+		<button
+			class="theme-toggle"
+			onclick={() => showTheme = !showTheme}
+			aria-expanded={showTheme}
+		>
+			{showTheme ? "Hide Theme" : "Show Theme"}
+		</button>
+	</header>
+
+	{#if showTheme}
+		<section class="panel">
+			<ThemePanel/>
+		</section>
+	{/if}
+
+	<Card title="Sri Harmandir Sahib">
+		This card automatically follows the global theme.
+	</Card>
+
+</main>
+
+<style>
+	.page{
+		max-width:48rem;
+		margin:auto;
+		padding:var(--space-lg);
+		display:grid;
+		gap:var(--space-lg);
+	}
+
+	.topbar{
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+	}
+
+	.panel{
+		padding:var(--space-md);
+		border:1px solid var(--color-border);
+		border-radius:var(--radius-lg);
+		background:var(--color-surface);
+	}
+
+	.theme-toggle{
+		padding:.45rem .8rem;
+	}
+</style>
