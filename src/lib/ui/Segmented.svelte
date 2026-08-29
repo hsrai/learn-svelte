@@ -1,3 +1,7 @@
+<script module lang="ts">
+	let nextGroupId = 0;
+</script>
+
 <script lang="ts">
 	import "../styles/segmented.css";
 
@@ -15,6 +19,8 @@
 		options: Option[];
 		value: string;
 	} = $props();
+
+	const groupName = `segmented-${nextGroupId++}`;
 </script>
 
 <fieldset class="segmented">
@@ -22,14 +28,15 @@
 
 	<div class="segmented-control">
 		{#each options as option}
-			<button
-				type="button"
-				class:selected={option.value === value}
-				aria-pressed={option.value === value}
-				onclick={() => value = option.value}
-			>
-				{option.label}
-			</button>
+			<label>
+				<input
+					type="radio"
+					name={groupName}
+					value={option.value}
+					bind:group={value}
+				/>
+				<span>{option.label}</span>
+			</label>
 		{/each}
 	</div>
 </fieldset>

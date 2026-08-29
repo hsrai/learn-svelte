@@ -1,4 +1,8 @@
 :root {
+	/* -------------------------------------------------
+	   Theme parameters
+	   ------------------------------------------------- */
+
 	--h: 150;
 	--c: 0.17;
 
@@ -6,6 +10,11 @@
 	--surface-L: 0.95;
 	--border-L: 0.86;
 	--text-L: 0.16;
+
+
+	/* -------------------------------------------------
+	   Global UI geometry
+	   ------------------------------------------------- */
 
 	--scale: 1;
 	--density: 1;
@@ -16,31 +25,96 @@
 
 	--unit: calc(1rem * var(--scale));
 
-	--space-xs: calc(var(--unit) * 0.25 * var(--density));
-	--space-sm: calc(var(--unit) * 0.5 * var(--density));
-	--space-md: calc(var(--unit) * 1 * var(--density));
-	--space-lg: calc(var(--unit) * 1.5 * var(--density));
-	--space-xl: calc(var(--unit) * 2 * var(--density));
 
-	--text-sm: calc(0.875rem * var(--scale));
-	--text-md: calc(1rem * var(--scale));
-	--text-lg: calc(1.25rem * var(--scale));
-	--text-xl: calc(1.6rem * var(--scale));
+	/* -------------------------------------------------
+	   Spacing
+	   ------------------------------------------------- */
 
-	--line-height: calc(1.6 * var(--density));
+	--space-xs:
+		calc(var(--unit) * 0.25 * var(--density));
 
-	--color-bg: oklch(var(--bg-L) 0.01 var(--h));
-	--color-surface: oklch(var(--surface-L) 0.015 var(--h));
-	--color-border: oklch(var(--border-L) 0.01 var(--h));
-	--color-text: oklch(var(--text-L) 0.02 var(--h));
+	--space-sm:
+		calc(var(--unit) * 0.5 * var(--density));
 
-	--color-primary: oklch(0.62 var(--c) var(--h));
+	--space-md:
+		calc(var(--unit) * 1 * var(--density));
+
+	--space-lg:
+		calc(var(--unit) * 1.5 * var(--density));
+
+	--space-xl:
+		calc(var(--unit) * 2 * var(--density));
+
+
+	/* -------------------------------------------------
+	   Typography
+	   ------------------------------------------------- */
+
+	--text-sm:
+		calc(0.875rem * var(--scale));
+
+	--text-md:
+		calc(1rem * var(--scale));
+
+	--text-lg:
+		calc(1.25rem * var(--scale));
+
+	--text-xl:
+		calc(1.6rem * var(--scale));
+
+	--line-height:
+		calc(1.6 * var(--density));
+
+
+	/* -------------------------------------------------
+	   Semantic colours
+	   ------------------------------------------------- */
+
+	--color-bg:
+		oklch(var(--bg-L) 0.01 var(--h));
+
+	--color-surface:
+		oklch(var(--surface-L) 0.015 var(--h));
+
+	--color-border:
+		oklch(var(--border-L) 0.01 var(--h));
+
+	--color-text:
+		oklch(var(--text-L) 0.02 var(--h));
+
+
+	/* -------------------------------------------------
+	   Primary colour
+	   ------------------------------------------------- */
+
+	--color-primary:
+		oklch(0.62 var(--c) var(--h));
+
 	--color-primary-hover:
-		oklch(0.55 calc(var(--c) + 0.03) var(--h));
+		oklch(
+			0.55
+			calc(var(--c) + 0.03)
+			var(--h)
+		);
 
-	/* Form controls */
-	--color-control-bg: var(--color-surface);
-	--color-control-border: var(--color-border);
+	--color-primary-active:
+		oklch(
+			0.48
+			calc(var(--c) + 0.03)
+			var(--h)
+		);
+
+
+	/* -------------------------------------------------
+	   Form controls
+	   ------------------------------------------------- */
+
+	--color-control-bg:
+		var(--color-surface);
+
+	--color-control-border:
+		var(--color-border);
+
 	--color-control-hover:
 		oklch(
 			from var(--color-primary)
@@ -50,11 +124,37 @@
 			/ 0.12
 		);
 
-	--color-control-selected: var(--color-primary);
-	--color-control-selected-text: oklch(0.98 0 0);
+	--color-control-selected:
+		var(--color-primary);
 
-	--color-focus: var(--color-primary);
+	--color-control-selected-text:
+		oklch(0.98 0 0);
+
+	--color-control-disabled:
+		oklch(
+			from var(--color-text)
+			l
+			c
+			h
+			/ 0.45
+		);
+
+
+	/* -------------------------------------------------
+	   Focus
+	   ------------------------------------------------- */
+
+	--color-focus:
+		var(--color-primary);
+
+
+	/* -------------------------------------------------
+	   Elevation
+	   ------------------------------------------------- */
 
 	--shadow:
 		0 8px 24px oklch(0 0 0 / 0.18);
+
+	--shadow-lg:
+		0 16px 40px oklch(0 0 0 / 0.24);
 }

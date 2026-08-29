@@ -8,8 +8,6 @@
 
 	<h2>{title}</h2>
 
-	<div class="card-body">
-		{@render children?.()}
-	</div>
+	{@render children?.()}
 
 </article>

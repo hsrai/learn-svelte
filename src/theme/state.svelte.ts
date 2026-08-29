@@ -3,6 +3,7 @@ export type Contrast = "soft" | "standard" | "high";
 export type Vibrancy = "muted" | "balanced" | "vibrant";
 export type Density = "compact" | "normal" | "spacious";
 export type Corners = "sharp" | "rounded" | "smooth";
+export type PageLayout = "focused" | "adaptive" | "wide";
 
 export const presets = {
 	Slate: { hue: 250, chroma: 0.02 },
@@ -15,8 +16,7 @@ export const presets = {
 } as const;
 
 export type PresetName = keyof typeof presets;
-
-export const presetNames = Object.keys(presets) as PresetName[];
+export type PresetSelection = PresetName | "Custom";
 
 class ThemeState {
 	hue = $state(150);
@@ -29,8 +29,9 @@ class ThemeState {
 	scale = $state("1");
 	density = $state<Density>("normal");
 	corners = $state<Corners>("rounded");
+	layout = $state<PageLayout>("adaptive");
 
-	preset = $state<string>("Emerald");
+	preset = $state<PresetSelection>("Emerald");
 }
 
 export const theme = new ThemeState();

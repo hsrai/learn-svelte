@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Prism Theme Studio">
+  <defs>
+    <linearGradient id="prism" x1="88" y1="72" x2="424" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset=".5" stop-color="#9333ea"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#111827"/>
+  <path d="M150 82H82v68M362 82h68v68M150 430H82v-68M362 430h68v-68" fill="none" stroke="url(#prism)" stroke-width="24" stroke-linecap="round"/>
+  <rect x="142" y="154" width="228" height="204" rx="30" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-width="10"/>
+  <path d="M142 204h228" stroke="#fff" stroke-width="10"/>
+  <circle cx="178" cy="179" r="9" fill="#818cf8"/>
+  <circle cx="208" cy="179" r="9" fill="#c084fc"/>
+  <circle cx="238" cy="179" r="9" fill="#5eead4"/>
+  <circle cx="218" cy="268" r="48" fill="#6366f1" fill-opacity=".9"/>
+  <circle cx="270" cy="268" r="48" fill="#a855f7" fill-opacity=".68"/>
+  <circle cx="244" cy="306" r="48" fill="#14b8a6" fill-opacity=".48"/>
+  <path d="M318 248h26M318 274h26M318 300h18" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -23,9 +23,3 @@ npm create vite@latest
 ◆  Install with npm and start now?
 │  ● Yes / ○ No
 ```
-
-## Install tailwind
-
-```sh
-npm install tailwindcss @tailwindcss/vite
-```

@@ -10,7 +10,7 @@ export function applyTheme() {
 				? 1.4
 				: 1;
 
-	const C = Math.min(0.35, theme.chroma * vibrancy);
+	const C = theme.chroma * vibrancy;
 
 	const delta =
 		theme.contrast === "soft"
@@ -56,5 +56,9 @@ export function applyTheme() {
 	root.style.setProperty("--radius-sm", `${radius[0]}px`);
 	root.style.setProperty("--radius-md", `${radius[1]}px`);
 	root.style.setProperty("--radius-lg", `${radius[2]}px`);
-	root.style.colorScheme = theme.mode === "night" ? "dark" : "light";
+
+	root.style.colorScheme =
+		theme.mode === "night" ? "dark" : "light";
+
+	root.dataset.layout = theme.layout;
 }
