@@ -1,40 +1,60 @@
-:root{
-	--h:150;
-	--c:0.17;
+:root {
+	--h: 150;
+	--c: 0.17;
 
-	--bg-L:0.98;
-	--surface-L:0.95;
-	--border-L:0.86;
-	--text-L:0.16;
+	--bg-L: 0.98;
+	--surface-L: 0.95;
+	--border-L: 0.86;
+	--text-L: 0.16;
 
-	--scale:1;
-	--density:1;
+	--scale: 1;
+	--density: 1;
 
-	--radius-sm:3px;
-	--radius-md:6px;
-	--radius-lg:10px;
+	--radius-sm: 3px;
+	--radius-md: 6px;
+	--radius-lg: 10px;
 
-	--unit:calc(1rem * var(--scale));
+	--unit: calc(1rem * var(--scale));
 
-	--space-xs:calc(var(--unit)*0.25*var(--density));
-	--space-sm:calc(var(--unit)*0.5*var(--density));
-	--space-md:calc(var(--unit)*1*var(--density));
-	--space-lg:calc(var(--unit)*1.5*var(--density));
-	--space-xl:calc(var(--unit)*2*var(--density));
+	--space-xs: calc(var(--unit) * 0.25 * var(--density));
+	--space-sm: calc(var(--unit) * 0.5 * var(--density));
+	--space-md: calc(var(--unit) * 1 * var(--density));
+	--space-lg: calc(var(--unit) * 1.5 * var(--density));
+	--space-xl: calc(var(--unit) * 2 * var(--density));
 
-	--text-sm:calc(.875rem*var(--scale));
-	--text-md:calc(1rem*var(--scale));
-	--text-lg:calc(1.25rem*var(--scale));
-	--text-xl:calc(1.6rem*var(--scale));
+	--text-sm: calc(0.875rem * var(--scale));
+	--text-md: calc(1rem * var(--scale));
+	--text-lg: calc(1.25rem * var(--scale));
+	--text-xl: calc(1.6rem * var(--scale));
 
-	--line-height:calc(1.6*var(--density));
+	--line-height: calc(1.6 * var(--density));
 
-	--color-bg:oklch(var(--bg-L) .01 var(--h));
-	--color-surface:oklch(var(--surface-L) .015 var(--h));
-	--color-border:oklch(var(--border-L) .01 var(--h));
-	--color-text:oklch(var(--text-L) .02 var(--h));
-	--color-primary:oklch(.62 var(--c) var(--h));
-	--color-primary-hover:oklch(.55 calc(var(--c)+.03) var(--h));
+	--color-bg: oklch(var(--bg-L) 0.01 var(--h));
+	--color-surface: oklch(var(--surface-L) 0.015 var(--h));
+	--color-border: oklch(var(--border-L) 0.01 var(--h));
+	--color-text: oklch(var(--text-L) 0.02 var(--h));
 
-	--shadow:0 8px 24px oklch(0 0 0 /.18);
+	--color-primary: oklch(0.62 var(--c) var(--h));
+	--color-primary-hover:
+		oklch(0.55 calc(var(--c) + 0.03) var(--h));
+
+	/* Form controls */
+	--color-control-bg: var(--color-surface);
+	--color-control-border: var(--color-border);
+	--color-control-hover:
+		oklch(
+			from var(--color-primary)
+			l
+			c
+			h
+			/ 0.12
+		);
+
+	--color-control-selected: var(--color-primary);
+	--color-control-selected-text: oklch(0.98 0 0);
+
+	--color-focus: var(--color-primary);
+
+	--shadow:
+		0 8px 24px oklch(0 0 0 / 0.18);
 }

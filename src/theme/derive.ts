@@ -10,7 +10,7 @@ export function applyTheme() {
 				? 1.4
 				: 1;
 
-	const C = theme.chroma * vibrancy;
+	const C = Math.min(0.35, theme.chroma * vibrancy);
 
 	const delta =
 		theme.contrast === "soft"
@@ -22,6 +22,7 @@ export function applyTheme() {
 	const bg = theme.mode === "day" ? 0.98 : 0.12;
 	const surface = theme.mode === "day" ? 0.95 : 0.18;
 	const border = theme.mode === "day" ? 0.86 : 0.28;
+
 	const text =
 		theme.mode === "day"
 			? Math.max(0.1, bg - delta)
@@ -55,4 +56,5 @@ export function applyTheme() {
 	root.style.setProperty("--radius-sm", `${radius[0]}px`);
 	root.style.setProperty("--radius-md", `${radius[1]}px`);
 	root.style.setProperty("--radius-lg", `${radius[2]}px`);
+	root.style.colorScheme = theme.mode === "night" ? "dark" : "light";
 }

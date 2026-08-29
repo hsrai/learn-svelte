@@ -1,36 +1,72 @@
 *,
 *::before,
-*::after{
-	box-sizing:border-box;
+*::after {
+	box-sizing: border-box;
 }
 
-html{
-	font-size:100%;
+html {
+	font-size: 100%;
 }
 
-body{
-	margin:0;
-	background:var(--color-bg);
-	color:var(--color-text);
-	font-family:Inter,system-ui,sans-serif;
-	line-height:var(--line-height);
+body {
+	margin: 0;
+
+	background: var(--color-bg);
+	color: var(--color-text);
+
+	font-family: Inter, system-ui, sans-serif;
+	line-height: var(--line-height);
 }
 
-h1,h2,h3,h4,h5,h6,p,ul,ol,blockquote,pre,table{
-	margin:0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote,
+pre,
+table {
+	margin: 0;
 }
 
-img{
-	max-width:100%;
-	display:block;
+img {
+	max-width: 100%;
+	display: block;
 }
 
 button,
 input,
-select{
-	font:inherit;
+select,
+textarea {
+	font: inherit;
+	color: var(--color-text);
 }
 
-a{
-	color:var(--color-primary);
+button,
+select,
+input {
+	accent-color: var(--color-primary);
+}
+
+button {
+	color: var(--color-text);
+	background: var(--color-control-bg);
+	border-color: var(--color-control-border);
+}
+
+a {
+	color: var(--color-primary);
+}
+
+:root {
+	accent-color: var(--color-primary);
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
 }
